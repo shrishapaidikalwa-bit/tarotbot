@@ -1,68 +1,55 @@
-"""Builds a voiced reel from (frame_image, narration) pairs using edge-tts + ffmpeg (both free)."""
-import asyncio
+"""Free-tier Gemini for writing. Falls back to templates if no key / any failure."""
 import json
 import os
-import subprocess
-from pathlib import Path
+import re
+import time
+import requests
 
-_TTS_DOWN = False
+# Things a tarot page should never automatically publish.
+BLOCK = re.compile(
+    r"you (will|are going to) (die|get sick|lose your|be diagnosed)|diagnos|cancer|pregnan|"
+    r"lawsuit|sue |invest in|buy (stocks?|crypto|bitcoin)|stop taking|medication|"
+    r"suicid|self-harm|curse|doomed|guaranteed", re.I)
 
-
-def run(cmd, timeout=300):
-    r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
-    if r.returncode:
-        raise RuntimeError(f"{cmd[0]} failed: {r.stderr[-800:]}")
-
-
-def duration(path):
-    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "json", str(path)],
-                         capture_output=True, text=True, check=True, timeout=60).stdout
-    return float(json.loads(out)["format"]["duration"])
+_DISABLED = False
 
 
-def tts(text, voice, out):
-    global _TTS_DOWN
-    try:
-        if _TTS_DOWN:
-            raise RuntimeError("voice service unavailable, skipping")
-        import edge_tts
-        asyncio.run(asyncio.wait_for(
-            edge_tts.Communicate(text, voice, rate="-8%").save(str(out)), timeout=25))
-        if os.path.getsize(out) < 1500:
-            raise RuntimeError("empty audio")
-    except Exception as e:
-        _TTS_DOWN = True  # don't wait on the service again during this run
-        print(f"TTS failed ({e!r}); using silent timing fallback")
-        secs = max(4.0, len(text.split()) * 0.42)
-        run(["ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono", "-t", f"{secs:.2f}",
-             "-acodec", "libmp3lame", str(out)])
+def gemini_json(prompt, model):
+    global _DISABLED
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key or _DISABLED:
+        return None
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    body = {"contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"responseMimeType": "application/json", "temperature": 0.95}}
+    for i in range(3):
+        try:
+            r = requests.post(url, headers={"x-goog-api-key": key}, json=body, timeout=60)
+            if r.status_code == 200:
+                text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                out = json.loads(text)
+                time.sleep(7)  # stay under the free-tier requests-per-minute limit
+                return out
+            print("Gemini status", r.status_code, r.text[:300])
+            if r.status_code in (400, 401, 403, 404):
+                _DISABLED = True  # bad key / bad model name: stop retrying for this run
+                return None
+        except Exception as e:
+            print("Gemini error:", e)
+        time.sleep(5 * (i + 1))
+    return None
 
 
-def build_reel(frames, voice, out_path, workdir, music=None):
-    workdir = Path(workdir)
-    workdir.mkdir(parents=True, exist_ok=True)
-    clips = []
-    for i, (img, text) in enumerate(frames):
-        audio, clip = workdir / f"a{i}.mp3", workdir / f"c{i}.mp4"
-        tts(text, voice, audio)
-        d = duration(audio) + 0.7
-        run(["ffmpeg", "-y", "-loop", "1", "-framerate", "30", "-i", str(img), "-i", str(audio),
-             "-af", "apad", "-t", f"{d:.2f}", "-c:v", "libx264", "-tune", "stillimage",
-             "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac", "-ar", "44100", "-ac", "2",
-             "-b:a", "128k", str(clip)])
-        clips.append(clip)
-    lst = workdir / "list.txt"
-    lst.write_text("".join(f"file '{c.resolve()}'\n" for c in clips))
-    out_path = Path(out_path)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    joined = workdir / "joined.mp4"
-    run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy",
-         "-movflags", "+faststart", str(joined)])
-    if music:
-        run(["ffmpeg", "-y", "-i", str(joined), "-stream_loop", "-1", "-i", str(music),
-             "-filter_complex", "[1:a]volume=0.10[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0[a]",
-             "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-shortest",
-             "-movflags", "+faststart", str(out_path)])
-    else:
-        joined.replace(out_path)
-    return out_path
+def _strings(o):
+    if isinstance(o, str):
+        yield o
+    elif isinstance(o, dict):
+        for v in o.values():
+            yield from _strings(v)
+    elif isinstance(o, list):
+        for v in o:
+            yield from _strings(v)
+
+
+def is_safe(content):
+    return not any(BLOCK.search(s) for s in _strings(content))
