@@ -1,4 +1,4 @@
-"""Free-tier Gemini for writing. Falls back to templates if no key / any failure."""
+"""Free-tier Gemini for writing, with model fallback and fast give-up."""
 import json
 import os
 import re
@@ -11,32 +11,41 @@ BLOCK = re.compile(
     r"lawsuit|sue |invest in|buy (stocks?|crypto|bitcoin)|stop taking|medication|"
     r"suicid|self-harm|curse|doomed|guaranteed", re.I)
 
-_DISABLED = False
+# Tried in order after the model set in config.yaml.
+FALLBACKS = ["gemini-3.1-flash-lite", "gemini-3.6-flash", "gemini-3.8-flash"]
+_dead = set()  # models that failed during this run; not retried again
 
 
 def gemini_json(prompt, model):
-    global _DISABLED
     key = os.environ.get("GEMINI_API_KEY")
-    if not key or _DISABLED:
+    if not key:
         return None
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"responseMimeType": "application/json", "temperature": 0.95}}
-    for i in range(3):
-        try:
-            r = requests.post(url, headers={"x-goog-api-key": key}, json=body, timeout=60)
+    for m in [model] + [x for x in FALLBACKS if x != model]:
+        if m in _dead:
+            continue
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
+        for _ in range(2):
+            try:
+                r = requests.post(url, headers={"x-goog-api-key": key}, json=body, timeout=25)
+            except Exception as e:
+                print("Gemini", m, "error:", type(e).__name__)
+                continue
             if r.status_code == 200:
-                text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                out = json.loads(text)
-                time.sleep(7)  # stay under the free-tier requests-per-minute limit
-                return out
-            print("Gemini status", r.status_code, r.text[:300])
-            if r.status_code in (400, 401, 403, 404):
-                _DISABLED = True  # bad key / bad model name: stop retrying for this run
-                return None
-        except Exception as e:
-            print("Gemini error:", e)
-        time.sleep(5 * (i + 1))
+                try:
+                    text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                    out = json.loads(text)
+                    time.sleep(5)  # gentle pacing for free-tier limits
+                    return out
+                except Exception:
+                    print("Gemini", m, "returned unusable JSON")
+                    continue
+            print("Gemini", m, r.status_code, r.text[:100].replace("\n", " "))
+            if r.status_code in (400, 401, 403, 404, 429):
+                break  # quota / bad model: no point retrying this model
+            time.sleep(3)
+        _dead.add(m)
     return None
 
 
