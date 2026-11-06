@@ -1,0 +1,24 @@
+# ---- Brand ----
+brand: "@yourtarotpage"
+disclaimer: "Tarot is for reflection and entertainment purposes only."
+voice_style: "warm, mystical but grounded, gentle, speaks directly to 'you'"
+base_hashtags: [tarot, tarotreading, tarotcards, tarotcommunity, spirituality, cardoftheday, pickacard]
+max_hashtags: 12
+
+# ---- Technical ----
+timezone: America/New_York
+branch: main                    # your repo's default branch
+graph_version: v23.0            # Instagram Graph API version (check Meta docs if calls fail)
+gemini_model: gemini-2.5-flash  # free-tier model; change if Google renames it
+voice: en-US-AriaNeural         # edge-tts voice (try en-US-JennyNeural, en-GB-SoniaNeural)
+reversed_chance: 0.3
+max_attempts: 3
+
+# ---- Weekly schedule (local time, see timezone above) ----
+# type: reel | carousel | story     cards: how many cards are drawn
+# days: any of mon..sun, or [daily]
+slots:
+  - {name: reel-pile,   type: reel,     cards: 3, days: [mon, fri],      time: "18:00"}
+  - {name: reel-single, type: reel,     cards: 1, days: [wed, sun],      time: "18:00"}
+  - {name: post,        type: carousel, cards: 1, days: [tue, thu, sat], time: "12:00"}
+  - {name: story,       type: story,    cards: 1, days: [daily],         time: "08:00"}
