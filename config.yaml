@@ -1,12 +1,12 @@
 # ---- Brand ----
-brand: "@yourtarotpage"
+brand: "@tarotportal11.11"
 disclaimer: "Tarot is for reflection and entertainment purposes only."
 voice_style: "warm, mystical but grounded, gentle, speaks directly to 'you'"
 base_hashtags: [tarot, tarotreading, tarotcards, tarotcommunity, spirituality, cardoftheday, pickacard]
 max_hashtags: 12
 
 # ---- Technical ----
-timezone: America/New_York
+timezone: Asia/Kolkata
 branch: main                    # your repo's default branch
 graph_version: v23.0            # Instagram Graph API version (check Meta docs if calls fail)
 gemini_model: gemini-2.5-flash  # free-tier model; change if Google renames it
