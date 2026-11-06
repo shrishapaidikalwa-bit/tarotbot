@@ -5,27 +5,34 @@ import os
 import subprocess
 from pathlib import Path
 
+_TTS_DOWN = False
 
-def run(cmd):
-    r = subprocess.run(cmd, capture_output=True, text=True)
+
+def run(cmd, timeout=300):
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
     if r.returncode:
         raise RuntimeError(f"{cmd[0]} failed: {r.stderr[-800:]}")
 
 
 def duration(path):
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "json", str(path)],
-                         capture_output=True, text=True, check=True).stdout
+                         capture_output=True, text=True, check=True, timeout=60).stdout
     return float(json.loads(out)["format"]["duration"])
 
 
 def tts(text, voice, out):
+    global _TTS_DOWN
     try:
+        if _TTS_DOWN:
+            raise RuntimeError("voice service unavailable, skipping")
         import edge_tts
-        asyncio.run(edge_tts.Communicate(text, voice, rate="-8%").save(str(out)))
+        asyncio.run(asyncio.wait_for(
+            edge_tts.Communicate(text, voice, rate="-8%").save(str(out)), timeout=25))
         if os.path.getsize(out) < 1500:
             raise RuntimeError("empty audio")
     except Exception as e:
-        print(f"TTS failed ({e}); using silent timing fallback")
+        _TTS_DOWN = True  # don't wait on the service again during this run
+        print(f"TTS failed ({e!r}); using silent timing fallback")
         secs = max(4.0, len(text.split()) * 0.42)
         run(["ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono", "-t", f"{secs:.2f}",
              "-acodec", "libmp3lame", str(out)])
