@@ -4,7 +4,7 @@
     "type": "carousel",
     "publish_at": "2026-11-07T01:00:00+00:00",
     "status": "scheduled",
-    "attempts": 0,
+    "attempts": 1,
     "caption": "A single moment of clarity can illuminate the path ahead when you choose to trust your inner truth. The Ace of Swords invites you to release mental clutter and step forward with gentle confidence. Save this reminder for whenever you need to find peace amidst noise.\n\nTarot is for reflection and entertainment purposes only.\n\n#aceofswords #tarotreading #mindfulness #tarotguidance #innerclarity #tarotcommunity #spiritualgrowth #tarotwisdom #tarot #tarotcards #spirituality #cardoftheday",
     "media": [
       "media/2026-11-07-post-1.jpg",
@@ -13,7 +13,8 @@
     ],
     "cards": [
       "Ace of Swords"
-    ]
+    ],
+    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AIjPfqCFlbTz4zYjYwFvChE\"}}"
   },
   {
     "id": "2026-11-07-story",
