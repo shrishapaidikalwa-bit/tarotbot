@@ -6,7 +6,7 @@ base_hashtags: [tarot, tarotreading, tarotcards, tarotcommunity, spirituality, c
 max_hashtags: 12
 
 # ---- Technical ----
-timezone: Asia/Kolkata
+timezone: America/New_York
 branch: main                    # your repo's default branch
 graph_version: v23.0            # Instagram Graph API version (check Meta docs if calls fail)
 gemini_model: gemini-3.5-flash  # free-tier model; change if Google renames it
