@@ -1,1 +1,208 @@
-[]
+[
+  {
+    "id": "2026-11-08-reel-single",
+    "type": "reel",
+    "publish_at": "2026-11-08T23:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "Disappointments in our relationships can cloud our view, but they also clear space for deeper alignment. Remember that feeling hurt is just a quiet doorway to honoring what remains. Be soft with yourself today.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarotreading #cardoftheday #fiveofcups #healingjourney #tarotguidance #innerpeace #emotionalhealing #mindfulliving #tarot #tarotcards #tarotcommunity #spirituality",
+    "media": [
+      "media/2026-11-08-reel-single.mp4"
+    ],
+    "cards": [
+      "Five of Cups"
+    ]
+  },
+  {
+    "id": "2026-11-08-story",
+    "type": "story",
+    "publish_at": "2026-11-08T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-08-story.jpg"
+    ],
+    "cards": [
+      "Nine of Pentacles (Reversed)"
+    ]
+  },
+  {
+    "id": "2026-11-09-reel-pile",
+    "type": "reel",
+    "publish_at": "2026-11-09T23:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "Sometimes the path forward is obscured by uncertainty or a need for rest. Take a deep breath and trust the wisdom emerging from your choice today.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarotreading #intuitiveguidance #spiritualgrowth #mindfulreflection #innerwork #tarotcommunity #selfdiscovery #consciousliving #tarot #tarotcards #spirituality #cardoftheday",
+    "media": [
+      "media/2026-11-09-reel-pile.mp4"
+    ],
+    "cards": [
+      "The Moon",
+      "Ten of Cups (Reversed)",
+      "Ace of Wands (Reversed)"
+    ]
+  },
+  {
+    "id": "2026-11-09-story",
+    "type": "story",
+    "publish_at": "2026-11-09T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-09-story.jpg"
+    ],
+    "cards": [
+      "Five of Pentacles"
+    ]
+  },
+  {
+    "id": "2026-11-10-post",
+    "type": "carousel",
+    "publish_at": "2026-11-10T17:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "The Death card marks a powerful transition in your journey. Embrace the change ahead and trust your inner strength during this period of personal renewal.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarot #growth #mindfulness #transformation #selfreflection #innerwork #tarotcommunity #consciousliving #tarotreading #tarotcards #spirituality #cardoftheday",
+    "media": [
+      "media/2026-11-10-post-1.jpg",
+      "media/2026-11-10-post-2.jpg",
+      "media/2026-11-10-post-3.jpg"
+    ],
+    "cards": [
+      "Death"
+    ]
+  },
+  {
+    "id": "2026-11-10-story",
+    "type": "story",
+    "publish_at": "2026-11-10T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-10-story.jpg"
+    ],
+    "cards": [
+      "The High Priestess (Reversed)"
+    ]
+  },
+  {
+    "id": "2026-11-11-reel-single",
+    "type": "reel",
+    "publish_at": "2026-11-11T23:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "The Queen of Pentacles reminds us that mastery is a slow and steady process. Take a deep breath and trust the roots you are building right now.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarot #dailyguidance #queenofpentacles #grounding #mindfulness #tarotcommunity #spiritualgrowth #selfcare #tarotreading #tarotcards #spirituality #cardoftheday",
+    "media": [
+      "media/2026-11-11-reel-single.mp4"
+    ],
+    "cards": [
+      "Queen of Pentacles"
+    ]
+  },
+  {
+    "id": "2026-11-11-story",
+    "type": "story",
+    "publish_at": "2026-11-11T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-11-story.jpg"
+    ],
+    "cards": [
+      "Nine of Cups"
+    ]
+  },
+  {
+    "id": "2026-11-12-post",
+    "type": "carousel",
+    "publish_at": "2026-11-12T17:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "When we give too much of ourselves, we can lose touch with our own creative essence. Take a breath and remember that you are worthy of your own care and attention today.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarotguidance #theempressreversed #selfcare #mindfulness #creativeenergy #tarotcommunity #innerwork #gentleguidance #tarot #tarotreading #tarotcards #spirituality",
+    "media": [
+      "media/2026-11-12-post-1.jpg",
+      "media/2026-11-12-post-2.jpg",
+      "media/2026-11-12-post-3.jpg"
+    ],
+    "cards": [
+      "The Empress (Reversed)"
+    ]
+  },
+  {
+    "id": "2026-11-12-story",
+    "type": "story",
+    "publish_at": "2026-11-12T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-12-story.jpg"
+    ],
+    "cards": [
+      "King of Pentacles"
+    ]
+  },
+  {
+    "id": "2026-11-13-reel-pile",
+    "type": "reel",
+    "publish_at": "2026-11-13T23:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "Your intuition always knows the way. Take a deep breath, choose your card, and listen to what your heart needs to hear today.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarot #intuition #selfreflection #spiritualgrowth #dailyguidance #mindfulness #tarotcommunity #innerpeace #tarotreading #tarotcards #spirituality #cardoftheday",
+    "media": [
+      "media/2026-11-13-reel-pile.mp4"
+    ],
+    "cards": [
+      "Knight of Wands",
+      "Four of Cups",
+      "Six of Cups (Reversed)"
+    ]
+  },
+  {
+    "id": "2026-11-13-story",
+    "type": "story",
+    "publish_at": "2026-11-13T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-13-story.jpg"
+    ],
+    "cards": [
+      "The Chariot"
+    ]
+  },
+  {
+    "id": "2026-11-14-post",
+    "type": "carousel",
+    "publish_at": "2026-11-14T17:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "Strength reversed is a reminder that being gentle with your process is a form of power. Take a breath and meet yourself exactly where you are today.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarot #selfreflection #strengthcard #mindfulness #innerwork #tarotcommunity #gentleguidance #selfcompassion #tarotreading #tarotcards #spirituality #cardoftheday",
+    "media": [
+      "media/2026-11-14-post-1.jpg",
+      "media/2026-11-14-post-2.jpg",
+      "media/2026-11-14-post-3.jpg"
+    ],
+    "cards": [
+      "Strength (Reversed)"
+    ]
+  },
+  {
+    "id": "2026-11-14-story",
+    "type": "story",
+    "publish_at": "2026-11-14T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-14-story.jpg"
+    ],
+    "cards": [
+      "Temperance"
+    ]
+  }
+]
