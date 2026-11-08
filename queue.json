@@ -4,7 +4,7 @@
     "type": "reel",
     "publish_at": "2026-11-08T01:00:00+00:00",
     "status": "scheduled",
-    "attempts": 1,
+    "attempts": 2,
     "caption": "Disappointments in our relationships can cloud our view, but they also clear space for deeper alignment. Remember that feeling hurt is just a quiet doorway to honoring what remains. Be soft with yourself today.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarotreading #cardoftheday #fiveofcups #healingjourney #tarotguidance #innerpeace #emotionalhealing #mindfulliving #tarot #tarotcards #tarotcommunity #spirituality",
     "media": [
       "media/2026-11-08-reel-single.mp4"
@@ -12,14 +12,14 @@
     "cards": [
       "Five of Cups"
     ],
-    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AxzgqE7u1HI1NCfvjLM48QJ\"}}"
+    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AiC16JkSIhC5aDpgPwzmbMI\"}}"
   },
   {
     "id": "2026-11-08-story",
     "type": "story",
     "publish_at": "2026-11-08T13:00:00+00:00",
     "status": "scheduled",
-    "attempts": 1,
+    "attempts": 2,
     "caption": "",
     "media": [
       "media/2026-11-08-story.jpg"
@@ -27,7 +27,7 @@
     "cards": [
       "Nine of Pentacles (Reversed)"
     ],
-    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AXw-g5tsbbz-lFfQLZtF80F\"}}"
+    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"A4aRP47u4hQ3uXl3xld12W9\"}}"
   },
   {
     "id": "2026-11-09-reel-pile",
