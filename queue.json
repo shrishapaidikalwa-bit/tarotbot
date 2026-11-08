@@ -206,5 +206,33 @@
     "cards": [
       "Temperance"
     ]
+  },
+  {
+    "id": "2026-11-15-reel-single",
+    "type": "reel",
+    "publish_at": "2026-11-15T23:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "Today invites you to reclaim power over your narrative and move past inner conflict. What mental boundary are you ready to gently release? Trust in your ability to find clarity amidst the noise.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarotreading #cardoftheday #eightofswords #mindfulness #tarotguidance #innerpeace #spiritualjourney #dailytarot #tarot #tarotcards #tarotcommunity #spirituality",
+    "media": [
+      "media/2026-11-15-reel-single.mp4"
+    ],
+    "cards": [
+      "Eight of Swords"
+    ]
+  },
+  {
+    "id": "2026-11-15-story",
+    "type": "story",
+    "publish_at": "2026-11-15T13:00:00+00:00",
+    "status": "scheduled",
+    "attempts": 0,
+    "caption": "",
+    "media": [
+      "media/2026-11-15-story.jpg"
+    ],
+    "cards": [
+      "Seven of Swords"
+    ]
   }
 ]
