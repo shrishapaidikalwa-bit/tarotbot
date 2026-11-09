@@ -49,8 +49,8 @@
     "id": "2026-11-09-story",
     "type": "story",
     "publish_at": "2026-11-09T13:00:00+00:00",
-    "status": "scheduled",
-    "attempts": 2,
+    "status": "failed",
+    "attempts": 3,
     "caption": "",
     "media": [
       "media/2026-11-09-story.jpg"
@@ -58,7 +58,7 @@
     "cards": [
       "Five of Pentacles"
     ],
-    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AJOoA8izVPUMNwsW9SJXX4X\"}}"
+    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AeKtJngsbUhifrNDZOZdJgn\"}}"
   },
   {
     "id": "2026-11-10-post",
