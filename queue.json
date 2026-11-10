@@ -33,8 +33,8 @@
     "id": "2026-11-09-reel-pile",
     "type": "reel",
     "publish_at": "2026-11-09T23:00:00+00:00",
-    "status": "scheduled",
-    "attempts": 2,
+    "status": "failed",
+    "attempts": 3,
     "caption": "Sometimes the path forward is obscured by uncertainty or a need for rest. Take a deep breath and trust the wisdom emerging from your choice today.\n\nTarot is for reflection and entertainment purposes only.\n\n#tarotreading #intuitiveguidance #spiritualgrowth #mindfulreflection #innerwork #tarotcommunity #selfdiscovery #consciousliving #tarot #tarotcards #spirituality #cardoftheday",
     "media": [
       "media/2026-11-09-reel-pile.mp4"
@@ -44,7 +44,7 @@
       "Ten of Cups (Reversed)",
       "Ace of Wands (Reversed)"
     ],
-    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AQldXvFe5q1qesM5l2U3fyQ\"}}"
+    "last_error": "Graph API 400: {\"error\":{\"message\":\"Cannot call API for app 1163281452692178 on behalf of user 1155609813814058\",\"type\":\"OAuthException\",\"code\":200,\"fbtrace_id\":\"AdE1pK4U1tYzEcxGXGC7oOU\"}}"
   },
   {
     "id": "2026-11-09-story",
