@@ -3,9 +3,17 @@ import requests
 
 
 class IG:
-    def __init__(self, user_id, token, version):
-        self.uid, self.token = user_id, token
-        self.base = f"https://graph.facebook.com/{version}"
+    """Publishes through Meta's Instagram API.
+    api="instagram": Instagram Login, no Facebook Page needed (graph.instagram.com, account id "me").
+    api="facebook":  the older Facebook Page flow (graph.facebook.com, explicit IG user id)."""
+
+    def __init__(self, user_id, token, version, api="instagram"):
+        self.token = token
+        if api == "facebook":
+            self.host, self.uid = "https://graph.facebook.com", user_id
+        else:
+            self.host, self.uid = "https://graph.instagram.com", "me"
+        self.base = f"{self.host}/{version}"
 
     def _post(self, path, **data):
         r = requests.post(f"{self.base}/{path}", data={**data, "access_token": self.token}, timeout=90)
