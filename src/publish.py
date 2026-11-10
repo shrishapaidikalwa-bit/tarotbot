@@ -51,7 +51,7 @@ def cleanup(queue):
 
 def main():
     cfg, queue = load_config(), load_queue()
-    ig = IG(os.environ["IG_USER_ID"], os.environ["IG_ACCESS_TOKEN"], cfg["graph_version"])
+       ig = IG(os.environ.get("IG_USER_ID", ""), os.environ["IG_ACCESS_TOKEN"], cfg["graph_version"], cfg.get("api", "instagram"))
     now = datetime.now(timezone.utc)
     for it in queue:
         if it["status"] != "scheduled":
