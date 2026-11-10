@@ -10,7 +10,7 @@ timezone: America/New_York
 branch: main                    # your repo's default branch
 graph_version: v26.0            # Instagram Graph API version (check Meta docs if calls fail)
 api: instagram          
-gemini_model: gemini-3.5-flash  # free-tier model; change if Google renames it
+gemini_model: gemini-3.5-flash-lite  # free-tier model; change if Google renames it
 voice: en-US-AriaNeural         # edge-tts voice (try en-US-JennyNeural, en-GB-SoniaNeural)
 reversed_chance: 0.3
 max_attempts: 3
